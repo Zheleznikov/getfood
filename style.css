@@ -1,0 +1,137 @@
+@keyframes errors {
+    from {
+      margin-top: -5px;
+      opacity: .1; 
+    }
+  
+    to {
+      margin-top: 10px;
+      opacity: 1;
+    }
+}
+
+html {
+    font-family: Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+
+.form {
+    max-width: 600px;
+    margin: auto;
+}
+
+.block {
+    margin-top: 60px;
+    border-radius: 3px;
+    max-width: 600px;
+  }
+
+.cover {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+   
+  }
+
+.cover__image {
+    width: 110px;
+    min-width: 110px;
+    height: 110px;
+    background-image: url('./images/logo.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+  
+.cover__heading {
+    margin-left: 30px;
+    font-size: 2.5em;
+    line-height: 1;
+}
+
+.form__field {
+	margin-bottom: 36px;
+}
+
+.form__field_radio {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.form__checkbox {
+    flex-basis: 120px;
+    border: 1px solid white;
+    margin-bottom: 10px;
+    /* border-bottom: 2px solid #ccc; */
+    
+}
+
+.form__text {
+    opacity: .5;
+    padding-top: 10px;
+}
+
+
+
+.form__fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.form__error {
+    display: none;
+    position: absolute;
+    margin-top: 10px;
+	color: #df4b41;
+	text-align: left;
+	font-size: 14px;
+    animation: errors .1s ease-in-out;
+}
+
+.form__input {
+    display: block;
+    width: 100%;
+    border: none;
+	border-radius: 2px;
+	border-bottom: 2px solid #ccc;
+	padding: 10px 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form__button {
+    width: 200px;
+    height: 48px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 3px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+	background-color: #ffdb4d;
+	color: #000;
+}
+
+
+
+.form__input:valid:not(:placeholder-shown) {
+	border-color: #ffdb4d;
+}
+
+.label_busy {
+    text-decoration: line-through;
+    opacity: .3;
+}
+
+
+

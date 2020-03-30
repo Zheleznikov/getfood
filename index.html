@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Заявка 1534</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./images/fav.png">
+</head>
+
+<body>
+    <main class="container">
+        <div class="cover">
+            <div class="cover__image"></div>
+            <h1 class="cover__heading">Запись на получение продуктового набора</h1>
+        </div>
+        <div class="block">
+            <form class="form" name="register" action="php/update.php" method="POST">
+                <h3>Чтобы получить продуктовый набор без скопления людей... заполните форму:</h3>
+                <fieldset class="form__fieldset">
+                    <div class="form__field">
+                        <p class="form__text">- выберите дату с 31 марта по 3 апреля и время:</p>
+                        <input class="form__input" type="date" name="day" min="2020-03-31" max="2020-04-03" value="2020" required/>
+                        <span class="form__error"></span>
+                    </div>
+                    <div class="form__filed form__field_radio">
+                        <template class="radio-template">
+                            <div class="form__checkbox">
+                                <input class="radio" type="radio" name="time" value="" required>
+                                <label class="label"></label>
+                            </div>
+                        </template>
+                    </div>
+                    <div class="form__field">
+                        <input class="form__input" name="FIO" placeholder="- укажите ФИО:" required/>
+                        <span class="form__error"></span>
+                    </div>
+                    <div class="form__field">
+                        <input class="form__input" name="edu" maxlength='10' placeholder="- укажите класс:" required/>
+                        <span class="form__error"></span>
+                    </div>
+                    <p class="form__text">- выберите ваш учебный корпус:</p>
+                    <div class="form__field">
+                        <select  placeholder="- укажите класс" name="building" id="" class='form__input' required class='form__opacity'>
+                            <option disabled selected disabled></option>
+                            <option value="1">Учебный корпус 1</option>
+                            <option value="2">Учебный корпус 2</option>
+                            <option value="3">Учебный корпус 3</option>
+                            <option value="4">Учебный корпус 4</option>
+                        </select>
+                    </div>
+                    <button class="form__button" type="submit">Отправить</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    </main>
+    <script type='module' src='./modules/index.js'></script>
+</body>
+
+</html>
