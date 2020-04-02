@@ -1,5 +1,3 @@
-// создание одной радиокнопки вhtml-документе 
-
 const checkBoxTemplate = document.querySelector('.radio-template').content;
 
 function createCheckBox(time) {
@@ -15,12 +13,17 @@ function createCheckBox(time) {
   document.querySelector('.form__field_radio').appendChild(checkBox);
 }
 
-// создание массива вида ['10:00' ,'10:05' .... '15:55']
-function generateTimes() {
+function deleteAllCheckBoxes() {
+  document.querySelector('.form__field_radio').textContent = '';
+}
+
+
+
+function generateTimes(n) {
   let hours = [];
   let mins = [];
 
-  for (let i = 10; i < 16; i++) {
+  for (let i = 10; i < n; i++) {
     hours.push(String(i));
   }
 
@@ -28,7 +31,7 @@ function generateTimes() {
     if (i === 0 || i === 5) {
       mins.push(`0${i}`)
     } else {
-      mins.push(String(i));ы
+      mins.push(String(i));
     }
   }
   const arr = [];
@@ -41,11 +44,9 @@ function generateTimes() {
   return arr;
 }
 
-const allTimes = generateTimes();
-
-// создание всех радиокнопок на основе массива
-function createAllCheckBoxes() {
+function createAllCheckBoxes(n) {
+  const allTimes = generateTimes(n);
   allTimes.forEach(time => createCheckBox(time));
 }
 
-export { createAllCheckBoxes}
+export { createAllCheckBoxes, deleteAllCheckBoxes}
