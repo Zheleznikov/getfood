@@ -1,4 +1,4 @@
-import { createAllCheckBoxes } from './checkbox.js';
+import { createAllCheckBoxes, deleteAllCheckBoxes } from './checkbox.js';
 import getArrayFromServer from './server.js';
 import { array } from './mockData.js'
 
@@ -62,12 +62,27 @@ function timeRadioButtons(occupiedTimes) {
   })
 }
 
-// обработчик
 function dayChangeHandler() {
-  const selectedDay = document.querySelector('input[name=day]').value; // берет значение для передачи в функцию getOccupiedTImes
-  const occupiedTimes = getOccupiedTimes(array, selectedDay); // ищем в массиве соответсвие
-  timeRadioButtons(occupiedTimes); // блокируем нужные радиокнопки
+  const selectedDay = document.querySelector('input[name=day]').value;
+  
+  if (selectedDay === '2020-04-06') {
+    deleteAllCheckBoxes();
+    createAllCheckBoxes(14);
+    document.querySelector('.form__button').removeAttribute('disabled');
+
+  } else if (selectedDay === '2020-04-04' || selectedDay === '2020-04-05') {
+    deleteAllCheckBoxes();
+    document.querySelector('.form__field_radio').textContent = 'К сожалению, на выходные записи нет';
+    document.querySelector('.form__button').setAttribute('disabled' , true);
+
+  } else {
+    deleteAllCheckBoxes();
+    createAllCheckBoxes(16);
+    document.querySelector('.form__button').removeAttribute('disabled');
+  }
+  const occupiedTimes = getOccupiedTimes(appData, selectedDay);
+  timeRadioButtons(occupiedTimes);
+
 }
 
-createAllCheckBoxes(); // создание чекбоксов
-document.querySelector('input[name=day]').addEventListener('change', dayChangeHandler); // проверить занят ли день
+document.querySelector('input[name=day]').addEventListener('change', dayChangeHandler); 
